@@ -1,0 +1,179 @@
+:root {
+  --violet: hsl(257, 40%, 49%);
+  --magenta: hsl(300, 69%, 71%);
+  --mobile-image: url("./images/bg-mobile.svg");
+  --desktop-image: url("./images/bg-desktop.svg");
+}
+
+body {
+  background-color: var(--violet);
+  color: white;
+  font-family: "Poppins", serif;
+  margin: 0;
+}
+
+.container {
+  background: var(--mobile-image) no-repeat center/cover;
+  width: 100%;
+  min-height: 350px;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.heading-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  min-height: 300px;
+}
+
+.text-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: 0 10px;
+}
+
+.hero-image {
+  place-items: center;
+  max-width: 300px;
+}
+
+.logo {
+  max-width: 150px;
+  padding: 20px;
+  justify-self: start;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+p {
+  font-weight: 300;
+  font-family: "Open Sans", serif;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+.register-btn {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  color: var(--violet);
+  font-family: "Open Sans", serif;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 10px;
+  font-size: 14px;
+  min-width: 200px;
+  border-radius: 30px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.social-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  padding: 20px 0;
+}
+
+.social-flex > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  margin: 40px 0px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.register-btn:hover {
+  background-color: var(--magenta);
+  color: white;
+}
+
+.fa-facebook-f:hover,
+.fa-twitter:hover,
+.fa-instagram:hover {
+  border: 1px solid var(--magenta);
+  color: var(--magenta);
+  cursor: pointer;
+}
+
+.fa {
+  display: flex !important;
+}
+
+@media only screen and (min-width: 600px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .container {
+    background: var(--desktop-image) no-repeat center/cover;
+    display: grid;
+    grid-template-areas:
+      "logo ."
+      "image text"
+      ". social";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 80% 10%;
+    height: 100vh;
+    gap: 10px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .hero-image {
+    grid-area: image;
+    max-width: 450px;
+    place-self: center;
+  }
+
+  .text-container {
+    grid-area: text;
+    place-items: start;
+    align-self: center;
+    padding-left: 40px;
+    max-width: 500px;
+  }
+
+  .text-container > * {
+    text-align: start;
+  }
+
+  .text-container h1 {
+    align-self: end;
+  }
+
+  .text-container p {
+    padding: 20px 0px;
+  }
+
+  .social-flex {
+    grid-area: social;
+    place-items: end;
+    justify-self: end;
+    margin-bottom: 40px;
+    margin-right: 40px;
+  }
+}
